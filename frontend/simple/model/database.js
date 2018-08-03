@@ -80,5 +80,5 @@ export function loadCurrentUser (): Promise<string> {
   return appSettings.getItem('currentUser')
 }
 export function clear (user: string): Promise<Object> {
-  return appSettings.clear()
+  return Promise.all([appSettings.clear(), log.clear()])
 }
